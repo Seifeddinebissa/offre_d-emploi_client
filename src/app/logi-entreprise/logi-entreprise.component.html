@@ -1,0 +1,101 @@
+<div id="wrapper">
+
+
+    <!-- Header
+    ================================================== -->
+    <app-header></app-header>
+    <div class="clearfix"></div>
+
+    <!-- Titlebar
+    ================================================== -->
+    <div id="titlebar" class="single"  style="background-image: url(../../assets/images/all-categories-photo.jpg);text-align:center">
+        <div class="container">
+
+            <div class="sixteen columns">
+                <h2>Espace Entreprise</h2>
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li>You are here:</li>
+                        <li><a >****Entreprise****</a></li>
+                        <li>Se Connecter</li>
+                    </ul>
+                </nav>
+            </div>
+            <h1 class="h4 text-gray-900 mb-4">Bienvenue !!</h1>
+        </div>
+    </div>
+
+
+    <!-- Content
+    ================================================== -->
+
+    <!-- Container -->
+    <div class="container">
+
+        <div class="my-account">
+
+            <ul class="tabs-nav">
+                <li class="active"><a><i class="fa fa-user"></i>  Se Connecter</a></li>
+                <li><a routerLink="/registerentreprise"><i class="fa fa-lock"></i>  S'inscrire</a></li>
+            </ul>
+
+            <div class="tabs-container">
+                <!-- Login -->
+                <div class="tab-content" id="tab1">
+                    <form method="post" class="login" [formGroup]="loginEntrepriseForm" (ngsubmit)="loginEntreprise()">
+
+                        <p class="form-row form-row-wide">
+                            <label for="username">Email:
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                <input type="text" class="input-text" name="username" id="username" value="" formControlName="email" />
+                            </label>
+                        </p>
+                        <div *ngIf="email?.touched && email?.invalid">
+                            <small class="text-danger" *ngIf="email?.errors?.['required']">Adresse Email 
+                                est obligatoire</small>
+                            <small class="text-danger" *ngIf="email?.errors?.['email']">Respecter le format de l'adresse Email 
+                                </small>
+                              
+                          </div>
+
+                        <p class="form-row form-row-wide">
+                            <label for="password">Mot De Passe:
+                                <i class="ln ln-icon-Lock-2"></i>
+                                <input class="input-text" type="password" name="password" id="password" formControlName="mdp"/>
+                            </label>
+                        </p>
+                        <div *ngIf="mdp?.touched && mdp?.invalid">
+                            <small class="text-danger" *ngIf="mdp?.errors?.['required']">Mot de passe 
+                                est obligatoire</small>
+                              
+                          </div>
+                       
+                        <p class="form-row">
+                            <input type="submit" (click)="loginEntreprise()" class="button border fw margin-top-10" name="login" value="Login" />
+
+                        </p>
+
+                        <p class="lost_password">
+                            <a href="#">Lost Your Password?</a>
+                        </p>
+
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Footer
+    ================================================== -->
+    <div class="margin-top-30"></div>
+
+    <app-footer></app-footer>
+
+    <!-- Back To Top Button -->
+    <div id="backtotop"><a href="#"></a></div>
+
+</div>

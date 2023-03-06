@@ -1,0 +1,124 @@
+<div id="wrapper">
+
+
+    <!-- Header
+    ================================================== -->
+    <app-header></app-header>
+    <div class="clearfix"></div>
+
+    <!-- Titlebar
+    ================================================== -->
+    <div id="titlebar" class="single" style="background-image: url(../../assets/images/img66.jpg);text-align:center">
+        <div class="container">
+
+            <div class="sixteen columns">
+                <h2>Listes Des Offres</h2>
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li>You are here:</li>
+                        <li><a routerLink="/listeoffre">**** Offre ****</a></li>
+                        <li>Listes Des Offres Disponibles </li>
+                    </ul>
+                </nav>
+            </div>
+     
+        </div>
+    </div>
+
+
+    <!-- Content
+    ================================================== -->
+
+  
+<!-- Container -->
+ <div class="container" style="margin-left:300px ;">
+   
+
+    <div class="eleven columns">
+            <!-- Contact Form -->
+            <section id="contact" class="padding-right">
+                
+                  <div class="listings-container">
+                      <div *ngIf="nbrOffre==0;else show">
+                             <h2 class="text-center">Votre Table Est Vide!</h2>
+                     </div>
+                          <ng-template #show>
+                            <div class="col-3" id="button">
+                                <div class="recherche" >
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                    <input type="search" class="sty" placeholder="Rechercher..." 
+                                    name="titre" [(ngModel)]="titre" (ngModelChange)="Search()" aria-label="Search" aria-describedby="search-addon" />
+                                    
+                                  </div>
+                                </div>
+                                
+                             <!-- Listing -->
+                             <a class="listing internship"  *ngFor="let offre of liste2 | paginate:{itemsPerPage:3,currentPage:page,totalItems:total}" 
+                             style="background-color:rgb(241, 247, 226)">
+                                 <div class="listing-logo">
+                                     <td><img [src]="offre.logo" height="30"></td>
+                                     <!-- <td><img [src]="offre.entreprise?.img" height="30"></td> -->
+                                 </div>
+                                 <div class="listing-title">
+                                    <h4>{{offre.titre}} </h4>
+                                    <ul class="listing-icons">
+                                        <li><i class="ln ln-icon-Management"></i> {{offre.experience}}</li>
+                                          <li><i class="fa fa-graduation-cap" aria-hidden="true"></i> {{offre.niveau}}</li>
+                                        <li><i class="ln ln-icon-Money-2"></i>{{offre.salaire}}</li>
+                                        <li><i class="fa fa-calendar" aria-hidden="true"></i><div class="listing-date" style="background-color: rgb(112, 228, 243)">{{offre.datedeb}}</div></li>
+                                        <li><i class="fa fa-calendar" aria-hidden="true"></i><div class="listing-date" style="background-color: rgb(243, 171, 112)">{{offre.datefin}}</div></li>
+                                   
+                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i>{{offre.type}}</li>
+                                        <li><i class="fa fa-server" aria-hidden="true"></i> {{offre.langue}}</li>
+                                        
+                                        <li><i class="fa fa-user" aria-hidden="true"></i>{{offre.genre}}</li>
+                                        <li><i class="fa fa-users" aria-hidden="true"></i>{{offre.nbpersonne}} personnes</li>
+                                       
+                                    </ul>
+                                   
+                                    <ul class="listing-icons"  *ngIf="user=='formateur'||user==null" >
+                                        <li><span class="listing-type" [routerLink]="['/description',offre.id]" style="background-color: rgb(177, 253, 187);"><i class="fa fa-info" aria-hidden="true"></i> Voir Plus</span></li>
+                                       <li><button class="listing-date" (click)="postuler(this.offre?.id)" style="background-color: rgb(252, 208, 203);margin-left:100px;"><i class="fa fa-share-square-o" aria-hidden="true"></i> Postuler, C'est Gratuit!!!</button></li>
+                                      
+                                   </ul>
+                                   <ul class="listing-icons" *ngIf="user=='entreprise'" >
+                                      <li><span class="listing-type" [routerLink]="['/description',offre.id]" style="background-color: rgb(177, 253, 187);"><i class="fa fa-info" aria-hidden="true"></i> Voir Plus</span></li>
+                                   
+                                    </ul>    
+                                </div>
+                             </a>    
+                             <pagination-controls  (pageChange)="page=$event" class="my_pagination" ></pagination-controls>                 
+                           </ng-template>
+                          
+                          
+                 </div>
+         
+                         <div class="margin-bottom-55"></div>
+                     
+            </section>
+            <!-- Contact Form / End -->
+    
+    </div>
+
+    <!-- Container / End -->
+    
+    
+    <!-- Sidebar
+    ================================================== -->
+   
+    </div>
+    <!-- Container / End -->
+
+
+
+    <!-- Footer
+    ================================================== -->
+    <div class="margin-top-30"></div>
+
+  <app-footer></app-footer> 
+    <!-- Back To Top Button -->
+  
+<div id="backtotop"><a href="#"></a></div>
+
+
+</div>

@@ -1,0 +1,101 @@
+<div id="wrapper">
+
+
+    <!-- Header
+    ================================================== -->
+    <app-header></app-header>
+    <div class="clearfix"></div>
+
+    <!-- Titlebar
+    ================================================== -->
+    <div id="titlebar" class="single" style="background-image: url(../../assets/images/img66.jpg);text-align:center">
+        <div class="container">
+
+            <div class="sixteen columns">
+                <h2>Mon Profile</h2>
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li>You are here:</li>
+                        <li><a routerLink="/profile">**** Profile ****</a></li>
+                        <li>Détails de Profile </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Content
+    ================================================== -->
+
+  
+<!-- Container -->
+<div class="dashboard-content" style="margin-left:50px ;">
+
+    <!-- Titlebar -->
+    
+    <div class="row">
+        <!-- Profile -->
+        <div class="col-lg-6 col-md-12">
+            <div class="dashboard-list-box margin-top-0">
+                <h4 class="gray" style="background-color: rgb(225, 247, 185);">Logo De Notre Entreprise :</h4>
+                <div class="dashboard-list-box-static">
+                    
+                    <!-- Avatar -->
+                    <div class="edit-profile-photo" style="margin-left:100px;margin-top:50px;">
+                        <img  [src]="user.img!"  style="text-align:center;">
+                    </div>
+
+                    <!-- Details -->
+                   
+                </div>
+            </div>
+        </div>
+
+        <!-- Change Password -->
+        <div class="col-lg-6 col-md-12">
+            <div class="dashboard-list-box margin-top-0">
+                <h4 class="gray" style="background-color: rgb(225, 247, 185);"> Des Détails Sur Notre Entreprise : </h4>
+                <div class="dashboard-list-box-static">
+
+                    <!-- Change Password -->
+                    <div class="my-profile">
+                        <label>Nom :  {{user.nom}}</label>
+                        <label *ngIf="currentuser=='formateur'">Prenom :  {{user.prenom}}</label>
+
+                        <label>Adresse :  {{user.adr}}</label>
+
+                        <label>Tél :  {{user.tel}}</label>
+                       
+                        <label>Email :  {{user.email}}</label>
+                        
+                       
+                        
+                    </div>
+                    <button class="button margin-top-30" *ngIf="currentuser=='entreprise'" [routerLink]="['/modifierentreprise',user.id]" style="margin-left:150px;"><i class="fa fa-pencil" aria-hidden="true"></i> Modifier</button>
+                    <button class="button margin-top-30" *ngIf="currentuser=='formateur'" [routerLink]="['/modifierFormateur',user.id]" style="margin-left:150px;"><i class="fa fa-pencil" aria-hidden="true"></i> Modifier</button>
+                </div>
+            </div>
+        
+        </div>
+        
+    </div>
+    <!-- Copyrights -->
+   
+</div>
+
+    <!-- Container / End -->
+
+
+
+    <!-- Footer
+    ================================================== -->
+    <div class="margin-top-30"></div>
+
+   
+    <!-- Back To Top Button -->
+<div id="backtotop"><a href="#"></a></div>
+<app-footer></app-footer>
+
+
+</div>

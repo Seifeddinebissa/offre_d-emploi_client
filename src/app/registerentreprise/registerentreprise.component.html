@@ -1,0 +1,149 @@
+<div id="wrapper">
+
+
+    <!-- Header
+    ================================================== -->
+    <app-header></app-header>
+    <div class="clearfix"></div>
+
+
+    <!-- Titlebar
+    ================================================== -->
+    <div id="titlebar" class="single"  style="background-image: url(../../assets/images/all-categories-photo.jpg);text-align:center">
+        <div class="container">
+
+            <div class="sixteen columns">
+                <h2>Espace Entreprise</h2>
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li>You are here:</li>
+                        <li><a href="#">****Entreprise****</a></li>
+                        <li> S'inscrire</li>
+                    </ul>
+                </nav>
+            </div>
+            <h1 class="h4 text-gray-900 mb-4">Créer Un Nouveau Compte!</h1>
+        </div>
+    </div>
+
+
+    <!-- Content
+    ================================================== -->
+
+    <!-- Container -->
+    <div class="container">
+
+        <div class="my-account">
+
+            <ul class="tabs-nav">
+                <li><a routerLink="/loginEntreprise"> <i class="fa fa-user"></i>  Se Connecter</a></li>
+                <li class="active"><a><i class="fa fa-lock"></i>  S'inscrire</a></li>
+            </ul>
+
+            <div class="tabs-container">
+
+
+                <!-- Register -->
+                <div class="tab-content">
+
+                    <form method="post" class="register" [formGroup]="registerEntrepriseForm" (ngsubmit)="registerEntreprise()" >
+
+                        <p class="form-row form-row-wide">
+                            <label for="nom">Logo:
+                                <i class="fa fa-camera-retro" aria-hidden="true"></i>
+                                <input class="search-field" type="file" accept="image/*" (change)="onSelectFile($event)"  formControlName="img"/>
+                                <img [src]="imgURL" height="200" *ngIf="imgURL">
+                            </label>
+                        </p>
+                        <div *ngIf="img?.touched && img?.invalid">
+                            <small class="text-danger" *ngIf="img?.errors?.['required']">Logo
+                                est obligatoire</small>
+                              
+                          </div>
+                        <p class="form-row form-row-wide">
+                            <label for="nom">Nom:
+                                <i class="ln ln-icon-Male"></i>
+                                <input type="text" class="input-text" name="username" id="username2" value="" formControlName="nom"/>
+                            </label>
+                        </p>
+                        <div *ngIf="nom?.touched && nom?.invalid">
+                            <small class="text-danger" *ngIf="nom?.errors?.['required']">nom 
+                                est obligatoire</small>
+                              
+                          </div>
+                          <p class="form-row form-row-wide">
+                            <label for="email2">Email Address:
+                                <i class="ln ln-icon-Mail"></i>
+                                <input type="text" class="input-text" name="email" id="email2" value="" formControlName="email" />
+                            </label>
+                        </p>
+                        <div *ngIf="email?.touched && email?.invalid">
+                            <small class="text-danger" *ngIf="email?.errors?.['required']">Adresse Email 
+                                est obligatoire</small>
+                            <small class="text-danger" *ngIf="email?.errors?.['email']">Respecter le format de l'adresse Email 
+                                </small>
+                              
+                          </div>
+                       
+                       
+                        <p class="form-row form-row-wide">
+                            <label for="tel">tel:
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <input type="text" class="input-text" formControlName="tel" >
+                            </label>
+                        </p>
+                        <div *ngIf="tel?.touched && tel?.invalid">
+                            <small class="text-danger" *ngIf="tel?.errors?.['required']">Num De Tel 
+                                est obligatoire</small>
+                              
+                          </div>
+                        
+                          <p class="form-row form-row-wide">
+                            <label for="adr">Adresse:
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <input type="text" class="input-text" formControlName="adr" />
+                            </label>
+                        </p>
+                        <div *ngIf="adr?.touched && adr?.invalid">
+                            <small class="text-danger" *ngIf="adr?.errors?.['required']">Adresse
+                                est obligatoire</small>
+                              
+                          </div>
+                        <p class="form-row form-row-wide">
+                            <label for="password1">Password:
+                                <i class="ln ln-icon-Lock-2"></i>
+                                <input class="input-text" type="password" name="password1" id="password1" formControlName="mdp" />
+                            </label>
+                        </p>
+                        <div *ngIf="mdp?.touched && mdp?.invalid">
+                            <small class="text-danger" *ngIf="mdp?.errors?.['required']">Mot de passe 
+                                est obligatoire</small>
+                              
+                          </div>
+                       
+                        <p class="form-row">
+                            <button type="submit" (click)="registerEntreprise()" class="btn btn-primary btn-user btn-block">
+                                S'inscrir
+                              </button>
+                        </p>
+
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Footer
+    ================================================== -->
+    <div class="margin-top-30"></div>
+
+    <app-footer></app-footer>
+
+    <!-- Back To Top Button -->
+    <div id="backtotop"><a href="#"></a></div>
+
+</div>

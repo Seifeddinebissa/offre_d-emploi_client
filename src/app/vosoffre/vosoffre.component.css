@@ -1,0 +1,30 @@
+.my_pagination /deep/ .ngx-pagination .current{
+    background: rgb(32, 99, 1);
+    margin-top: 50px;
+    margin-left: 250px;
+    margin-right: 150px;
+    font-family: "Montserrat";
+	text-align: center;
+	overflow: hidden;
+}
+.recherche{
+    margin-left: 150px;
+    margin-bottom: 20px;
+    width: 500px;
+    padding:0 25px ;
+    background-color:  rgb(245, 247, 240);
+    border-radius: 25px  25px 25px 25px;
+    border: 2px solid;
+    box-shadow: 6px 4px 8px 4px;
+
+}
+.sty{  
+    
+    background-color: rgb(245, 247, 240);
+    width:400px;
+    height: 50px;
+    border:none;
+    outline: none;
+    padding:0 25px ;
+    border-radius: 25px  25px 25px 25px;
+}

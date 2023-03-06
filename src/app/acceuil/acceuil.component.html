@@ -1,0 +1,137 @@
+<body>
+<div id="wrapper">
+
+
+<!-- Header
+================================================== -->
+<app-header></app-header>
+<div class="clearfix"></div>
+
+<!-- Slider
+================================================== -->
+<div class="fullwidthbanner-container" >
+	<div class="fullwidthbanner" >
+		<ul>
+
+			<!-- Slide 1 -->
+			<li data-fstransition="fade" data-transition="fade" data-slotamount="10" data-masterspeed="300">
+
+				<img src="../../assets/images/banner.jpg" alt="" >
+
+				<div class="caption title sfb" data-x="0" data-y="195" data-speed="400" data-start="800"  data-easing="easeOutExpo">
+					<h2 style="color:black;">Explorer et être découvert</h2>
+				</div>
+
+				<div class="caption text sfb" data-x="0" data-y="270" data-speed="400" data-start="1200" data-easing="easeOutExpo">
+					<p style="color:black;">Connectez-vous directement avec et soyez découvert par les employeurs <br>qui veulent vous embaucher.</p>
+				</div>
+
+				<div class="caption sfb" data-x="0" data-y="400" data-speed="400" data-start="1600" data-easing="easeOutExpo">
+					<a routerLink="/loginFormateur" class="slider-button">Commencer</a>
+				</div>
+			</li>
+
+			<!-- Slide 2 -->
+			<li data-transition="slideup" data-slotamount="10" data-masterspeed="800">
+				<img src="../../assets/images/banner-home-02.jpg" alt="" >
+
+				<div class="caption title sfb" data-x="center" data-y="195" data-speed="400" data-start="800"  data-easing="easeOutExpo">
+					<h2>Trouver La Carrière Que Vous Méritez !!</h2>
+				</div>
+
+				<div class="caption text align-center sfb" data-x="center" data-y="270" data-speed="400" data-start="1200" data-easing="easeOutExpo">
+					<p style="color:rgb(218, 107, 17) ;">Work Scout est le site d'emploi le plus fiable, connectant les esprits les plus brillants du monde <br> avec une base de données de CV chargée de talents.</p>
+				</div>
+			</li>
+
+		</ul>
+	</div>
+</div>
+
+<!-- Clients Carousel -->
+<div class="clearfix"></div>
+<div class="container">
+
+	<!-- Recent Jobs -->
+	<div class="eleven columns">
+		<div class="padding-right">
+			<h3 class="margin-bottom-25">Les Offres Les Plus Recentes </h3>
+			<div class="listings-container">
+				  <div *ngIf="nbrOffre==0;else show">
+						 <h2 class="text-center">Votre Table Est Vide!</h2>
+				 </div>
+					  <ng-template #show>
+							
+						 <!-- Listing -->
+						 <a class="listing internship"  *ngFor="let offre of liste2.slice(total-4,total)" 
+						 style="background-color:rgb(241, 247, 226)">
+							 <div class="listing-logo">
+								 <td><img [src]="offre.logo" height="30"></td>
+							 </div>
+							 <div class="listing-title">
+								<h4>{{offre.titre}} </h4>
+								<ul class="listing-icons">
+									<li><i class="ln ln-icon-Management"></i> {{offre.experience}}</li>
+									  <li><i class="fa fa-graduation-cap" aria-hidden="true"></i> {{offre.niveau}}</li>
+									<li><i class="ln ln-icon-Money-2"></i>{{offre.salaire}}</li>
+									<li><i class="fa fa-calendar" aria-hidden="true"></i><div class="listing-date" style="background-color: rgb(112, 228, 243)">{{offre.datedeb}}</div></li>
+									<li><i class="fa fa-calendar" aria-hidden="true"></i><div class="listing-date" style="background-color: rgb(243, 171, 112)">{{offre.datefin}}</div></li>
+							   
+									<li><i class="fa fa-clock-o" aria-hidden="true"></i>{{offre.type}}</li>
+									<li><i class="fa fa-server" aria-hidden="true"></i> {{offre.langue}}</li>
+									
+									<li><i class="fa fa-user" aria-hidden="true"></i>{{offre.genre}}</li>
+									<li><i class="fa fa-users" aria-hidden="true"></i>{{offre.nbpersonne}} personnes</li>
+								   
+								</ul>
+							   
+								<ul class="listing-icons"  *ngIf="user=='formateur'||user==null" >
+									<li><span class="listing-type" [routerLink]="['/description',offre.id]" style="background-color: rgb(177, 253, 187);"><i class="fa fa-info" aria-hidden="true"></i> Voir Plus</span></li>
+								   <li><button class="listing-date" (click)="postuler()" style="background-color: rgb(252, 208, 203);margin-left:100px;"><i class="fa fa-share-square-o" aria-hidden="true"></i> Postuler, C'est Gratuit!!!</button></li>
+								  
+							   </ul>
+							   <ul class="listing-icons" *ngIf="user=='entreprise'" >
+								  <li><span class="listing-type" [routerLink]="['/description',offre.id]" style="background-color: rgb(177, 253, 187);"><i class="fa fa-info" aria-hidden="true"></i> Voir Plus</span></li>
+							   
+								</ul>    
+							</div>
+						 </a>    
+					   </ng-template>
+					   <a routerLink="/listeoffre" class="button centered"><i class="fa fa-plus-circle"></i> Voir Plus D'offres</a>                
+					  
+					  
+			 </div>
+	 
+					 <div class="margin-bottom-55"></div>
+		<!-- Contact Form / End -->
+
+</div>
+
+</div>
+
+</div>
+<!-- Container / End -->
+
+
+<!-- Footer
+================================================== -->
+<div class="margin-top-0"></div>
+
+<app-footer></app-footer>
+
+<!-- Back To Top Button -->
+<div id="backtotop"><a href="#"></a></div>
+
+
+</div>
+<!-- Wrapper / End -->
+
+
+
+
+
+
+
+
+</body>
+

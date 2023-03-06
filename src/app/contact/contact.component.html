@@ -1,0 +1,123 @@
+<div id="wrapper">
+
+
+    <!-- Header
+    ================================================== -->
+    <app-header></app-header>
+    <div class="clearfix"></div>
+
+    <!-- Titlebar
+    ================================================== -->
+    <div id="titlebar" class="single" style="background-image: url(../../assets/images/img66.jpg);text-align:center">
+        <div class="container">
+
+            <div class="sixteen columns">
+                <h2>N'hesitez Pas De Nous Contacter</h2>
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li>You are here:</li>
+                        <li><a >**** Contact ****</a></li>
+                        <li>Envoie Des Messages</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Content
+    ================================================== -->
+
+  
+<!-- Container -->
+<div class="container">
+    <div class="my-account">
+
+    <div class="eleven columns">
+    
+        <h3 class="margin-bottom-15">Formulaire Du Contact</h3>
+        
+            <!-- Contact Form -->
+            <section id="contact" class="padding-right">
+    
+                <!-- Success Message -->
+                <mark id="message"></mark>
+    
+                <!-- Form -->
+                <form method="post" name="contactform" id="contactform"  [formGroup]="ajoutForm" (ngsubmit)="ajouterContact()">
+    
+                    <fieldset >
+                      <div *ngIf="user ;else cont">
+                        <div >
+                            <label>Nom:<span>*</span></label>
+                            <input name="nom" type="text" id="name" [value]="currentuser.nom"  readonly />
+                        </div>
+                        <div  >
+                            <label>Num Tél:<span>*</span></label>
+                            <input name="name" type="text" id="name" [value]="currentuser.tel"  readonly/>
+                        </div>
+                        <div  >
+                            <label >Email: <span>*</span></label>
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            <input name="email" type="email" id="email" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$" [value]="currentuser.email"  readonly/>
+                        </div>
+                      </div>
+                      <ng-template #cont>
+                        <div >
+                            <label>Nom:<span>*</span></label>
+                            <input name="nom" type="text" id="name" formControlName="nom" />
+                        </div>
+                        <div  >
+                            <label>Num Tél:<span>*</span></label>
+                            <input name="name" type="text" id="name"formControlName="tel" />
+                        </div>
+                        <div  >
+                            <label >Email: <span>*</span></label>
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            <input name="email" type="email" id="email" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$"formControlName="email" />
+                        </div>
+                    </ng-template>
+                        <div>
+                            <label>Sujet:<span>*</span></label>
+                            <input name="name" type="text" id="name" formControlName="sujet" />
+                        </div>
+                       
+                        <div>
+                            <label>Message: <span>*</span></label>
+                            <textarea name="comment" cols="40" rows="3" id="comment" spellcheck="true" formControlName="msg"></textarea>
+                        </div>
+    
+                    </fieldset>
+                    <div id="result"></div>
+                    <input type="submit" class="submit" id="submit" (click)="ajouterContact()"value="Envoyer" style="margin-left: 300px;"/>
+                    <div class="clearfix"></div>
+                    <div class="margin-bottom-40"></div>
+                </form>
+    
+            </section>
+            <!-- Contact Form / End -->
+    
+    </div>
+</div>
+    <!-- Container / End -->
+    
+    
+    <!-- Sidebar
+    ================================================== -->
+   
+    </div>
+    <!-- Container / End -->
+
+
+
+    <!-- Footer
+    ================================================== -->
+    <div class="margin-top-30"></div>
+
+   
+    <!-- Back To Top Button -->
+<div id="backtotop"><a href="#"></a></div>
+<app-footer></app-footer>
+
+
+</div>

@@ -1,0 +1,226 @@
+<div id="wrapper">
+
+
+    <!-- Header
+    ================================================== -->
+    <app-header></app-header>
+    <div class="clearfix"></div>
+
+    <!-- Titlebar
+    ================================================== -->
+    <div id="titlebar" class="single" style="background-image: url(../../assets/images/img66.jpg);text-align:center">
+        <div class="container">
+
+            <div class="sixteen columns">
+                <h2>Ajouter Offres</h2>
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li>You are here:</li>
+                        <li><a>**** Offres ****</a></li>
+                        <li>Ajouter Offres</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Content
+    ================================================== -->
+
+  
+<!-- Container -->
+<div class="dashboard-content">
+
+    <!-- Titlebar -->
+    
+    <!-- Content -->
+    <div class="row">
+    
+        <!-- Table-->
+        <div class="col-lg-12 col-md-12">
+
+            <div class="dashboard-list-box margin-top-0">
+                <h4 style="background-color: rgb(225, 247, 185);"><i class="fa fa-briefcase" aria-hidden="true"></i>   Les Details de l'offre :</h4>
+                <div class="dashboard-list-box-content">
+
+                <Form class="submit-page" [formGroup]="ajoutForm" (ngsubmit)="ajouterOffre()">
+
+                 <!-- logo -->
+                    <div class="form">
+                        <h5>Logo</h5>
+                        <input class="search-field" type="file" accept="image/*" (change)="onSelectFile($event)"  formControlName="logo"/>
+                        <img [src]="imgURL" height="200" *ngIf="imgURL">
+                    </div>
+                    <div *ngIf="logo?.touched && logo?.invalid">
+                        <small class="text-danger" *ngIf="logo?.errors?.['required']">Logo 
+                            est obligatoire</small>
+                          
+                      </div>
+                 
+                    <!-- titre -->
+                    <div class="form">
+                        <h5>Titre</h5>
+                        <input class="search-field" type="text" placeholder="Entrer le Titre de votre Offre " formControlName="titre"/>
+                    </div>
+
+                    <div *ngIf="titre?.touched && titre?.invalid">
+                        <small class="text-danger" *ngIf="titre?.errors?.['required']">Titre 
+                            est obligatoire</small>
+                          
+                      </div>
+                    
+                
+                       <!-- experience -->
+                      <div class="form">
+                        <h5>Experience</h5>
+                        <input class="search-field" type="text" placeholder="Entrer l'experience de votre Offre " formControlName="experience"/>
+                    </div>
+
+                    <div *ngIf="experience?.touched && experience?.invalid">
+                        <small class="text-danger" *ngIf="experience?.errors?.['required']">experience 
+                            est obligatoire</small>
+                          
+                      </div>
+                     <!--------niveau------------>
+                     <div class="form">
+                        <h5>Niveau</h5>
+                        <input class="search-field" type="text" placeholder="Entrer le niveau de votre Offre " formControlName="niveau"/>
+                    </div>
+
+                    <div *ngIf="niveau?.touched && niveau?.invalid">
+                        <small class="text-danger" *ngIf="niveau?.errors?.['required']">experience 
+                            est obligatoire</small>
+                          
+                      </div> 
+                    <!--Type -->
+                    <div class="form">
+                        <h5>Type</h5>
+                        <div >
+                           <input type="radio" name="type" value="Plein Temps" id="inlineRadio1" formControlName="type"/>
+                           <label  for="inlineRadio1">Plein Temps</label>
+                       
+                            <input  type="radio" name="type" value="Temps Partiel" id="inlineRadio2"  formControlName="type"/>
+                            <label  for="inlineRadio2">Temps Partiel</label>
+                        
+                            <input  type="radio" name="type" value="Stage" id="inlineRadio3"  formControlName="type"/>
+                            <label for="inlineRadio3">Stage</label>
+                         </div>
+                        
+                    </div>
+
+                    <div *ngIf="type?.touched && type?.invalid">
+                        <small class="text-danger" *ngIf="type?.errors?.['required']">experience 
+                            est obligatoire</small>
+                          
+                      </div> 
+                    <!---------langue-------->
+                    <div class="form">
+                        <h5>Langue</h5>
+                        <input class="search-field" type="text" placeholder="Choisir la langue de l'offre "  formControlName="langue"/>
+                    </div>
+
+                    <div *ngIf="langue?.touched && langue?.invalid">
+                        <small class="text-danger" *ngIf="langue?.errors?.['required']">langue 
+                            est obligatoire</small>
+                          
+                      </div>
+                   <!-- Salaire -->
+                   <div class="form">
+                    <h5>Salaire</h5>
+                    <input class="search-field" type="text" placeholder="Choisir le salaire de l'offre "  formControlName="salaire"/>
+                </div>
+
+                <div *ngIf="salaire?.touched && salaire?.invalid">
+                    <small class="text-danger" *ngIf="salaire?.errors?.['required']">salaire 
+                        est obligatoire</small>
+                      
+                  </div>
+                  <!-- genre -->
+                  <div class="form">
+                    <h5>Genre</h5>
+                    <input class="search-field" type="text" placeholder="Choisir la date de debut de l'offre "  formControlName="genre"/>
+                </div>
+
+                <div *ngIf="genre?.touched && genre?.invalid">
+                    <small class="text-danger" *ngIf="genre?.errors?.['required']">genre  
+                        est obligatoire</small>
+                      
+                  </div>
+                   <!-- date deb -->
+                      <div class="form">
+                        <h5>Date Debut</h5>
+                        <input class="search-field" type="text"  [value]="mydate.toLocaleDateString()"  readonly/>
+                    </div>
+
+                    <div *ngIf="datedeb?.touched && datedeb?.invalid">
+                        <small class="text-danger" *ngIf="datedeb?.errors?.['required']">date debut 
+                            est obligatoire</small>
+                          
+                      </div>
+                      <!-- date fin -->
+                      <div class="form">
+                        <h5>Date d'expiration</h5>
+                        <input class="search-field" type="date"formControlName="datefin" />
+                    </div>
+
+                    <div *ngIf="datefin?.touched && datefin?.invalid">
+                        <small class="text-danger" *ngIf="datefin?.errors?.['required']">date d'expiration 
+                            est obligatoire</small>
+                          
+                      </div>
+                       
+                      <!-- nb_personne -->
+                      <div class="form">
+                        <h5>Nombre Personne</h5>
+                        <input class="search-field" type="number" placeholder="nombre de personnes "  formControlName="nbpersonne"/>
+                    </div>
+
+                    <div *ngIf="nbpersonne?.touched && nbpersonne?.invalid">
+                        <small class="text-danger" *ngIf="nbpersonne?.errors?.['required']">nb personne 
+                            est obligatoire</small>
+                          
+                      </div>
+                    <!-- Description -->
+                    <div class="form" style="width: 100%;">
+                        <h5>Description</h5>
+                        <textarea class="WYSIWYG" name="summary" cols="40" rows="3" id="summary" spellcheck="true" formControlName="description"></textarea>
+                    </div>
+
+                    <div *ngIf="description?.touched && description?.invalid">
+                        <small class="text-danger" *ngIf="description?.errors?.['required']">Description 
+                            est obligatoire</small>
+                          
+                      </div>
+                  
+                </Form>
+
+                </div>
+            </div>
+            <button type="submit" (click)="ajouterOffre()" class="button margin-top-30">Ajouter <i class="fa fa-arrow-circle-right"></i></button>
+        </div>
+
+
+
+     <div class="row">
+
+       
+       
+     </div>
+    </div>
+ </div>
+    <!-- Container / End -->
+
+
+
+    <!-- Footer
+    ================================================== -->
+    <div class="margin-top-30"></div>
+
+   
+    <!-- Back To Top Button -->
+<div id="backtotop"><a href="#"></a></div>
+ <app-footer></app-footer>
+
+
+</div>
